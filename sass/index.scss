@@ -1,0 +1,97 @@
+@use 'variables.scss' as *;
+@use 'components/customSelect.scss' as *;
+@use 'components/card.scss' as *;
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Anton', serif;
+  font-weight: 400;
+  font-style: normal;
+  background: $color-light-grey;
+}
+
+.global-container {
+  max-width: $max-width;
+  margin: auto;
+}
+
+.header {
+  position: relative;
+  background-image: url('./../assets/images/bg/lampos-aritonang-24gR_9lCdes-unsplash 1.png');
+  background-position: 50% 50%;
+  min-height: 540px;
+  .bg-img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  .title {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+  }
+  .tag-line {
+    width: 60%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-yellow;
+    font-size: 44px;
+    font-family: 'Anton', sans-serif;
+  }
+}
+.search {
+  &-ctn {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: $color-white;
+    border-radius: 11px;
+    width: 80%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  &-input {
+    border: none;
+    width: 80%;
+  }
+  &-btn {
+    border: 1px solid $color-black;
+    background-color: $color-black;
+    color: $color-white;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      transition: all 0.3s;
+      background-color: $color-yellow;
+      border-color: $color-yellow;
+    }
+  }
+}
+
+
+.recipe-galery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) ;
+  gap: 48px;
+  row-gap: 66px;
+  max-width: calc($max-width - (2 * 102px ));
+  margin: 55px auto;
+}

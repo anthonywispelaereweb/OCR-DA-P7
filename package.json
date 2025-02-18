@@ -1,0 +1,15 @@
+{
+  "name": "ocr-da-p7",
+  "version": "1.0.0",
+  "description": "Projet 7 du parcours Développeur d'application JavaScript React - Développez un algorithme de recherche en JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass --watch sass/index.scss styles/index.css"
+  },
+  "author": "Wispelaere Anthony",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.83.4"
+  }
+}

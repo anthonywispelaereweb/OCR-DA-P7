@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+    <title>Les petit plats</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./styles/index.css" />
+  </head>
+  <body>
+    <header class="global-container header">
+      <img class="title" src="./assets/images/logo/Logo.png" alt="Les petit plats" />
+      <div class="tag-line">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES</div>
+      <form class="search-ctn">
+        <input class="search-input" type="search" name="searh" id="search" />
+        <button type="button" class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </header>
+    <main class="global-container">
+      <section class="filters">
+        <div class="custom-select ingredients">
+          <button class="dropdown-button" aria-expanded="false" aria-label="Filtrer les recettes par ingrédients">
+            <span class="pointer-events-none" aria-hidden="true">Ingrédients</span>
+          </button>
+          <select>
+            <option value="0">Select ingredients</option>
+          </select>
+        </div>
+        <div class="custom-select ustensils">
+          <button class="dropdown-button" aria-expanded="false" aria-label="Filtrer les recettes par ustencils">
+            <span class="pointer-events-none" aria-hidden="true">Ustencils</span>
+          </button>
+          <select>
+            <option value="0">Select ustensils:</option>
+          </select>
+        </div>
+        <div class="custom-select appliances">
+          <button class="dropdown-button" aria-expanded="false" aria-label="Filtrer les recettes par appareils">
+            <span class="pointer-events-none" aria-hidden="true">Appareils</span>
+          </button>
+          <select>
+            <option value="0">Select appliances</option>
+          </select>
+        </div>
+      </section>
+      <section class="recipe-galery"></section>
+    </main>
+    <script src="./scripts/utils/display.js"></script>
+    <script src="./scripts/utils/api.js"></script>
+    <script src="./scripts/utils/customSelect.js"></script>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>
