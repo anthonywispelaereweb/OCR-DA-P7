@@ -4,71 +4,86 @@
   &-recipe {
     position: relative;
     width: 100%;
-    box-shadow: 0px 4px 34px 30px #0000000A;
-    border-radius: 21px;
+    box-shadow: 0 0.25rem 2.125rem 1.875rem #0000000a;
+    border-radius: 1.3125rem;
     background: $color-white;
     overflow: hidden;
   }
   &-time {
     display: block;
     position: absolute;
-    top: 21px;
-    right: 20px;
-    border-radius: 14px;
+    top: 1.3125rem;
+    right: 1.25rem;
+    border-radius: 0.875rem;
     background-color: $color-yellow;
     color: $color-dark-grey;
-    padding: 5px 15px;
-    font-size: 12px;
+    padding: 0.3125rem 0.9375rem;
+    font-size: 0.75rem;
     font-weight: 400;
     font-family: 'Manrope', sans-serif;
-    line-height: 16px;
+    line-height: 1rem;
   }
   &-image img {
     width: 100%;
-    height: 250px;
+    height: 15.625rem;
     object-fit: cover;
   }
   &-content {
-    padding: 32px 25px 0 25px;
+    padding: 2rem 1.5625rem 0 1.5625rem;
   }
   &-title {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 28px;
+    line-height: 1.75rem;
     color: $color-black;
   }
   &-sub-title {
     font-family: 'Manrope', sans-serif;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 1rem;
     color: $color-grey;
     text-transform: uppercase;
   }
   &-description {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
-    line-height: 19px;
+    line-height: 1.1875rem;
     color: $color-dark-grey;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
   &-content-ingredient {
-    padding: 0 25px 32px 25px;
+    padding: 0 1.5625rem 2rem 1.5625rem;
     list-style: none;
     columns: 2;
     margin: 0;
   }
   &-content-ingredient li {
     font-family: 'Manrope', sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 500;
-    line-height: 19px;
+    line-height: 1.1875rem;
     margin-bottom: 1rem;
   }
   &-ingredient {
     display: block;
     &-quantity {
       display: block;
+    }
+  }
+}
+@media (width < 664px) {
+  .card-recipe {
+    .card-content {
+      padding: 1rem 1rem 0 1rem;
+    }
+    .card-content-ingredient {
+      padding: 0 1rem;
     }
   }
 }

@@ -32,37 +32,45 @@
       </form>
     </header>
     <main class="global-container">
-      <section class="filters">
-        <div class="custom-select ingredients">
-          <button class="dropdown-button" aria-expanded="false" aria-label="Filtrer les recettes par ingrédients">
-            <span class="pointer-events-none" aria-hidden="true">Ingrédients</span>
-          </button>
-          <select>
-            <option value="0">Select ingredients</option>
-          </select>
+      <section class="filters-ctn">
+        <div class="dropdownMenu custom-select ingredients">
+          <div class="dropdownMenu-header">
+            <button class="dropdownMenu-header-select" aria-controls="filterOptions" aria-haspopup="listbox" aria-label="Ingrédients">
+                Ingrédients
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="dropdownMenu-panel" id="filterOptionsIngredients">
+          </div>
         </div>
-        <div class="custom-select ustensils">
-          <button class="dropdown-button" aria-expanded="false" aria-label="Filtrer les recettes par ustencils">
-            <span class="pointer-events-none" aria-hidden="true">Ustencils</span>
-          </button>
-          <select>
-            <option value="0">Select ustensils:</option>
-          </select>
+        <div class="dropdownMenu custom-select appliances">
+          <div class="dropdownMenu-header">
+            <button class="dropdownMenu-header-select" aria-controls="filterOptions" aria-haspopup="listbox" aria-label="Ingrédients">
+                Appareils
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="dropdownMenu-panel" id="filterOptionsAppliances">
+          </div>
         </div>
-        <div class="custom-select appliances">
-          <button class="dropdown-button" aria-expanded="false" aria-label="Filtrer les recettes par appareils">
-            <span class="pointer-events-none" aria-hidden="true">Appareils</span>
-          </button>
-          <select>
-            <option value="0">Select appliances</option>
-          </select>
+        <div class="dropdownMenu custom-select ustensils">
+          <div class="dropdownMenu-header">
+            <button class="dropdownMenu-header-select" aria-controls="filterOptions" aria-haspopup="listbox" aria-label="Ingrédients">
+                Ustensiles
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+          </div>
+          <div class="dropdownMenu-panel" id="filterOptionsUstensilss">
+          </div>
         </div>
+      
+        <div class="total-recipes"></div>
+      </section>
+      <section class="tags-ctn">
+        
       </section>
       <section class="recipe-galery"></section>
     </main>
-    <script src="./scripts/utils/display.js"></script>
-    <script src="./scripts/utils/api.js"></script>
-    <script src="./scripts/utils/customSelect.js"></script>
-    <script src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

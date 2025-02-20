@@ -1,0 +1,40 @@
+@use './../variables.scss' as *;
+
+.tags {
+  &-ctn {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: calc($max-width - (2 * 6.375rem));
+    margin: auto;
+  }
+}
+.tag {
+  padding: 1rem;
+  background-color: $color-yellow;
+  color: $color-black;
+  border-radius: 0.625rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  min-width: 8.75rem;
+  cursor: pointer;
+
+  .close-icon {
+    font-size: 1rem;
+  }
+}
+@media (width < 664px) {
+  .tags {
+    justify-content: center;
+  }
+  .tag {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    min-width: 0;
+  }
+}
