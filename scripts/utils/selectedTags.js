@@ -1,3 +1,5 @@
+import { filterRecipes } from './filterRecipes.js'
+
 const selectedTags = {
   ingredients: [],
   ustensils: [],
@@ -13,6 +15,8 @@ const updateSelectedTags = (tag, type) => {
   } else {
     selectedTags[type].push(tag)
   }
+
+  filterRecipes(selectedTags)
 }
 
 export { selectedTags, updateSelectedTags }
