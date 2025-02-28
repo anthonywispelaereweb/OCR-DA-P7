@@ -1,4 +1,4 @@
-import { selectedTags, updateSelectedTags } from './selectedTags.js'
+import { selectedTags, setSelectedTags } from './../utils/selectedTags.js'
 
 const translateFormat = valueToTranslate => {
   let translatedFormat = ''
@@ -35,7 +35,7 @@ const displayTags = tags => {
       tag.classList.add('tag')
       tag.innerHTML = `<span class="tag-label">${value}</span>`
       tag.addEventListener('click', () => {
-        updateSelectedTags(value, key)
+        setSelectedTags(value, key)
         displayTags(selectedTags)
       })
       tag.appendChild(itag)
@@ -76,12 +76,11 @@ const setSelectors = (recipes) => {
     recipe.ustensils.forEach(ustencil => currentSelectors.ustensils.add(capitalizeFirstLetter(ustencil)))
     currentSelectors.appliances.add(capitalizeFirstLetter(recipe.appliance))
   })
-  let sortedSelectors = {
+  return {
     ingredients: Array.from(currentSelectors.ingredients).sort((a, b) => a.localeCompare(b)),
     ustensils: Array.from(currentSelectors.ustensils).sort((a, b) => a.localeCompare(b)),
     appliances: Array.from(currentSelectors.appliances).sort((a, b) => a.localeCompare(b))
   }
-  return sortedSelectors
 }
 
 const getElements = (key) => {
@@ -163,7 +162,7 @@ const displaySelectors = recipes => {
           option.setAttribute('aria-selected', true)
         }
 
-        updateSelectedTags(valueOption, key)
+        setSelectedTags(valueOption, key)
         panel.querySelector('.search-input-ctn').reset()
         panel.classList.toggle('open')
         headerSelect.classList.toggle('open')
@@ -217,7 +216,7 @@ const updateSelectors = (recipes) => {
         } else {
           option.setAttribute('aria-selected', true)
         }
-        updateSelectedTags(valueOption, key)
+        setSelectedTags(valueOption, key)
         panel.classList.toggle('open')
         headerSelect.classList.toggle('open')
         // Reset search input

@@ -3,9 +3,7 @@
 const displayFilteredRecipes = (recipes) => {
   const galery = document.querySelector('.recipe-galery')
   galery.innerHTML = ''
-  for(let i = 0; i < recipes.length; i++) {
-    displayRecipe(recipes[i])
-  }
+  recipes.forEach(recipe => displayRecipe(recipe))
 }
 
 const displayRecipe = (recipes) => {

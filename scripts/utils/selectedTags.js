@@ -1,22 +1,29 @@
-import { filterRecipes } from './filterRecipes.js'
+import { filterRecipes, filterRecipeWithSearhValue } from './filterRecipes.js'
+import { allRecipes, getCurrentRecipes } from './../utils/context.js'
 
 const selectedTags = {
   ingredients: [],
   ustensils: [],
   appliances: []
 }
-
-const updateSelectedTags = (tag, type) => {
+const getSelectedTags = () => {
+  return selectedTags
+}
+const setSelectedTags = (tag, type) => {
   if (selectedTags[type].includes(tag)) {
     selectedTags[type] = selectedTags[type].filter(item => item !== tag)
     // Remove tag from list select
     let tagToRemove = document.querySelector(`.dropdownMenu-panel-option[data-key="${type}-${tag}"]`)
-    tagToRemove.setAttribute('aria-selected', 'false')
+
+    if (tagToRemove) tagToRemove.setAttribute('aria-selected', 'false')
   } else {
     selectedTags[type].push(tag)
   }
 
   filterRecipes(selectedTags)
+  let updatingRecipes = getCurrentRecipes()
+  const searchValue = document.querySelector('#search').value
+  filterRecipeWithSearhValue(updatingRecipes.length !== allRecipes.length ? updatingRecipes : allRecipes, searchValue.trim())
 }
 
-export { selectedTags, updateSelectedTags }
+export { selectedTags, setSelectedTags, getSelectedTags }

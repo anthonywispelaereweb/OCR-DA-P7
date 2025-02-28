@@ -5,8 +5,12 @@ const updateAllRecipes = (newRecipes) => {
   return allRecipes
 }
 
-const updateCurrentRecipess = (newRecipes) => {
+const setCurrentRecipes = (newRecipes) => {
   currentRecipes = newRecipes
   return currentRecipes
 }
-export { allRecipes, currentRecipes, updateAllRecipes, updateCurrentRecipess }
+const getCurrentRecipes = () => {
+  return currentRecipes
+}
+
+export { allRecipes, currentRecipes, updateAllRecipes, setCurrentRecipes, getCurrentRecipes }

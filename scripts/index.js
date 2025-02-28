@@ -1,18 +1,19 @@
-
 import { getData } from './utils/api.js'
-import { displayFilteredRecipes, displayTotalRecipes } from './utils/displayRecipes.js'
-import { displaySelectors } from './utils/displaySelect.js'
-import { updateAllRecipes, updateCurrentRecipess } from './utils/context.js'
-const initRecipes = async() => {
+import { displayFilteredRecipes, displayTotalRecipes } from './display/recipes.js'
+import { displaySelectors } from './display/select.js'
+import { updateAllRecipes, setCurrentRecipes } from './utils/context.js'
+import { initSearchInput } from './utils/searchInput.js'
+
+const initRecipes = async () => {
   const recipes = await getData('./assets/data/recipes.json')
-  
   return recipes
 }
 
-initRecipes().then((data)=> {
+initRecipes().then(data => {
   displayFilteredRecipes(data)
   displaySelectors(data)
   displayTotalRecipes(data)
   updateAllRecipes(data)
-  updateCurrentRecipess(data)
+  setCurrentRecipes(data)
+  initSearchInput()
 })

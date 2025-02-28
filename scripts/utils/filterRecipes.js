@@ -1,15 +1,15 @@
-import { allRecipes, currentRecipes, updateCurrentRecipess } from './context.js'
-import { displayFilteredRecipes, displayTotalRecipes } from './../utils/displayRecipes.js'
-import { updateSelectors } from './../utils/displaySelect.js'
-const filterRecipes = (selectedTags) => {
+import { allRecipes, setCurrentRecipes } from './context.js'
+import { displayFilteredRecipes, displayTotalRecipes } from './../display/recipes.js'
+import { updateSelectors } from './../display/select.js'
+const filterRecipes = selectedTags => {
   let allTags = []
-  Object.values(selectedTags).forEach((tag) => {
+  Object.values(selectedTags).forEach(tag => {
     return tag.map(itemTag => {
       allTags.push(itemTag.toLowerCase())
     })
-  } )
+  })
   if (allTags.length === 0) {
-    updateCurrentRecipess(allRecipes)
+    setCurrentRecipes(allRecipes)
     displayTotalRecipes(allRecipes)
     displayFilteredRecipes(allRecipes)
     updateSelectors(allRecipes)
@@ -24,13 +24,31 @@ const filterRecipes = (selectedTags) => {
       return recipe
     }
   })
-  
-  updateCurrentRecipess(filteredRecipes)
-  displayTotalRecipes(currentRecipes)
-  displayFilteredRecipes(currentRecipes)
-  updateSelectors(currentRecipes)
+
+  setCurrentRecipes(filteredRecipes)
+  displayTotalRecipes(filteredRecipes)
+  displayFilteredRecipes(filteredRecipes)
+  updateSelectors(filteredRecipes)
 
   return filteredRecipes
 }
 
-export { filterRecipes }
+const filterRecipeWithSearhValue = (recipes, value) => {
+  const lowerValue = value.toLowerCase()
+  let filteredRecipes = recipes.filter(recipe => {
+    if (
+      recipe.name.toLowerCase().includes(lowerValue) ||
+      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(lowerValue)) ||
+      recipe.appliance.toLowerCase().includes(lowerValue) ||
+      recipe.description.toLowerCase().includes(lowerValue)
+    ) {
+      return recipe
+    }
+  })
+  setCurrentRecipes(filteredRecipes)
+  displayTotalRecipes(filteredRecipes)
+  displayFilteredRecipes(filteredRecipes)
+  updateSelectors(filteredRecipes)
+  return filteredRecipes
+}
+export { filterRecipes, filterRecipeWithSearhValue }
