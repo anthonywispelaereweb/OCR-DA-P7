@@ -11,7 +11,13 @@ const getSelectedTags = () => {
 }
 const setSelectedTags = (tag, type) => {
   if (selectedTags[type].includes(tag)) {
-    selectedTags[type] = selectedTags[type].filter(item => item !== tag)
+    let filteredTags = []
+    for(let i = 0; i < selectedTags[type].length; i++) {
+      if(selectedTags[type][i] !== tag) {
+        filteredTags.push(tag)
+      }
+    }
+    selectedTags[type] = filteredTags
     // Remove tag from list select
     let tagToRemove = document.querySelector(`.dropdownMenu-panel-option[data-key="${type}-${tag}"]`)
 
