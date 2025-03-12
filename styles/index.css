@@ -230,10 +230,6 @@
   line-height: 1.1875rem;
   color: #1B1B1B;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
-  line-clamp: 4;
-  -webkit-box-orient: vertical;
 }
 .card-content-ingredient {
   padding: 0 1.5625rem 2rem 1.5625rem;
@@ -283,13 +279,13 @@
   display: flex;
   gap: 1rem;
   align-items: center;
-  cursor: pointer;
 }
 .tag-label {
   max-width: 100px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  cursor: pointer;
 }
 .tag .close-icon {
   font-size: 1rem;
@@ -386,7 +382,7 @@ body {
 .search-btn:hover {
   transition: all 0.3s;
   background-color: #ffd15b;
-  border-color: #ffd15b;
+  border-color: transparent;
 }
 
 .recipe-galery {

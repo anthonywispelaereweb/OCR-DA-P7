@@ -27,8 +27,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: pointer;
   }
-  cursor: pointer;
 
   .close-icon {
     font-size: 1rem;
