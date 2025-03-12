@@ -52,6 +52,10 @@
     line-height: 1.1875rem;
     color: $color-dark-grey;
     overflow: hidden;
+    // display: -webkit-box;
+    // -webkit-line-clamp: 4; /* number of lines to show */
+    // line-clamp: 4;
+    // -webkit-box-orient: vertical;
   }
   &-content-ingredient {
     padding: 0 1.5625rem 2rem 1.5625rem;
