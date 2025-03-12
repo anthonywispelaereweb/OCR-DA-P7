@@ -63,7 +63,7 @@
   border-radius: 0 0 0.6875rem 0.6875rem;
   background: white;
   pointer-events: none;
-  transition: height opacity 0.8s;
+  transition: all 0.8s;
 }
 .filters-ctn .dropdownMenu-panel.open {
   height: fit-content;
@@ -80,7 +80,7 @@
   overflow-y: auto;
   transform: translate(0, 100%);
   width: 100%;
-  transition: height opacity 0.8s;
+  transition: all 0.8s;
 }
 .filters-ctn .dropdownMenu-panel .dropdownMenu-panel-search-ctn {
   text-decoration: none;
