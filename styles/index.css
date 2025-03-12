@@ -398,6 +398,10 @@ body {
   margin: 3.4375rem auto;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (width < 968px) {
   .recipe-galery {
     grid-template-columns: repeat(2, minmax(0, 1fr));

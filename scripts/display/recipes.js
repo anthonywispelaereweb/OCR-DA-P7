@@ -57,4 +57,17 @@ const displayTotalRecipes = (recipes) => {
   totalRecipes.textContent = `${recipes.length} recette${recipes.length > 1 ? 's' :''}`
 }
 
-export { displayFilteredRecipes, displayTotalRecipes }
+const displayNoResult = (recipesResult, searchValue) => {
+  const noResult = document.querySelector('.no-result')
+  const searchValueNoResult = document.querySelector('.no-result-value')
+  
+  if (recipesResult.length === 0) {
+    noResult.classList.remove('hidden')
+    searchValueNoResult.textContent = `" ${searchValue} "` 
+  } else {
+    noResult.classList.add('hidden')
+    searchValueNoResult.textContent = ''
+  }
+}
+
+export { displayFilteredRecipes, displayTotalRecipes, displayNoResult }

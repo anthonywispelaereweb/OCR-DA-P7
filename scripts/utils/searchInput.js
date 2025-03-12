@@ -1,6 +1,6 @@
 import { allRecipes, setCurrentRecipes, getCurrentRecipes } from './../utils/context.js'
 import { filterRecipeWithSearhValue, filterRecipes } from './../utils/filterRecipes.js'
-import { displayFilteredRecipes, displayTotalRecipes } from './../display/recipes.js'
+import { displayFilteredRecipes, displayTotalRecipes, displayNoResult } from './../display/recipes.js'
 import { updateSelectors } from './../display/select.js'
 import { getSelectedTags } from './../utils/selectedTags.js'
 
@@ -16,11 +16,14 @@ const initSearchInput = () => {
       let currentTag = getSelectedTags()
       if (!!currentTag.appliances.length || !!currentTag.ingredients.length || !!currentTag.ustensils.length) {
         filterRecipes(currentTag)
+        displayNoResult(currentTag, searchValue)
       } else {
         setCurrentRecipes(allRecipes)
         displayTotalRecipes(allRecipes)
         displayFilteredRecipes(allRecipes)
         updateSelectors(allRecipes)
+        displayNoResult(allRecipes, searchValue)
+
       }
     }
   })

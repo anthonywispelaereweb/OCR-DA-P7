@@ -1,5 +1,5 @@
 import { allRecipes, setCurrentRecipes } from './context.js'
-import { displayFilteredRecipes, displayTotalRecipes } from './../display/recipes.js'
+import { displayFilteredRecipes, displayTotalRecipes, displayNoResult } from './../display/recipes.js'
 import { updateSelectors } from './../display/select.js'
 const filterRecipes = selectedTags => {
   let allTags = []
@@ -13,6 +13,9 @@ const filterRecipes = selectedTags => {
     displayTotalRecipes(allRecipes)
     displayFilteredRecipes(allRecipes)
     updateSelectors(allRecipes)
+
+    displayNoResult(allRecipes, allTags)
+
     return allRecipes
   }
   let filteredRecipes = allRecipes.filter(recipe => {
@@ -29,6 +32,8 @@ const filterRecipes = selectedTags => {
   displayTotalRecipes(filteredRecipes)
   displayFilteredRecipes(filteredRecipes)
   updateSelectors(filteredRecipes)
+
+  displayNoResult(filteredRecipes, allTags)
 
   return filteredRecipes
 }
@@ -49,6 +54,8 @@ const filterRecipeWithSearhValue = (recipes, value) => {
   displayTotalRecipes(filteredRecipes)
   displayFilteredRecipes(filteredRecipes)
   updateSelectors(filteredRecipes)
+  
+  displayNoResult(filteredRecipes, value)
   return filteredRecipes
 }
 export { filterRecipes, filterRecipeWithSearhValue }
